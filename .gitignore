@@ -4,3 +4,8 @@ IMAGESFILE/IMG_4376.mov
 
 # Или все файлы в папке IMAGESFILE (если хотите исключить всю папку)
 # IMAGESFILE/
+IMAGESFILE/*.mov
+IMAGESFILE/IMG_4376.mp4
+IMAGESFILE/IMG_4376.mov
+IMAGESFILE/*.mp4
+IMAGESFILE/*.mov
