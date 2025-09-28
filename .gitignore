@@ -1,0 +1,6 @@
+# Большие видео файлы
+IMAGESFILE/IMG_4376.mp4
+IMAGESFILE/IMG_4376.mov
+
+# Или все файлы в папке IMAGESFILE (если хотите исключить всю папку)
+# IMAGESFILE/
