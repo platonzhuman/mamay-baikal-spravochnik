@@ -1,0 +1,370 @@
+/* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ И СБРОС СТИЛЕЙ === */
+:root {
+    --primary-blue: #1f3650;
+    --secondary-blue: #304975;
+    --accent-blue: #24385e;
+    --light-blue: #7593b1;
+    --text-white: #ffffff;
+    --glow-color: rgba(76, 175, 80, 0.6);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === УЛУЧШЕННЫЕ СТИЛИ BODY === */
+body {
+    background: linear-gradient(135deg, #7593b1 0%, #5a7a9c 50%, #3a5f80 100%);
+    background-size: 400% 400%;
+    color: var(--text-white);
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    line-height: 1.6;
+    animation: gradientShift 8s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Анимация градиента */
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Эффект частиц на фоне */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    animation: floatParticles 20s ease-in-out infinite;
+}
+
+@keyframes floatParticles {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* === УЛУЧШЕННЫЕ СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ === */
+img {
+    margin: 20px auto;
+    display: block;
+    border-radius: 20px;
+    max-width: 90%;
+    height: auto;
+    transition: var(--transition);
+    transform-style: preserve-3d;
+    position: relative;
+    box-shadow: 
+        0 10px 30px rgba(36, 56, 94, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 3px solid transparent;
+    background: linear-gradient(45deg, var(--secondary-blue), var(--accent-blue)) border-box;
+}
+
+img:hover {
+    transform: 
+        translateY(-10px) 
+        rotateX(5deg) 
+        scale(1.02);
+    box-shadow: 
+        0 20px 50px rgba(36, 56, 94, 0.6),
+        0 0 30px var(--glow-color),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Эффект блика на изображении */
+img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.6s ease;
+    transform: skewX(-15deg);
+}
+
+img:hover::after {
+    left: 150%;
+}
+
+/* === УЛУЧШЕННЫЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ === */
+.h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    color: var(--primary-blue);
+    margin: 30px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.5);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 
+            2px 2px 4px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 
+            2px 2px 8px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(255, 255, 255, 0.8),
+            0 0 40px var(--glow-color);
+    }
+}
+
+.h1::before,
+.h1::after {
+    content: '✦';
+    color: var(--secondary-blue);
+    margin: 0 15px;
+    opacity: 0.7;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* === УЛУЧШЕННЫЙ БЛОК С ТЕКСТОМ === */
+.border-text {
+    margin: 40px auto;
+    text-align: center;
+    border: 3px solid transparent;
+    padding: 50px 40px;
+    background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+    border-radius: 40px;
+    box-shadow: 
+        0 15px 35px rgba(36, 56, 94, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    transform-style: preserve-3d;
+}
+
+.border-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.border-text:hover {
+    transform: 
+        translateY(-8px) 
+        rotateX(3deg) 
+        scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(36, 56, 94, 0.6),
+        0 0 40px var(--glow-color),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Эффект глубины для текста */
+.border-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* === УЛУЧШЕННЫЕ ССЫЛКИ === */
+.back {
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    border-radius: 25px;
+    display: inline-block;
+    margin: 20px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(36, 56, 94, 0.4);
+}
+
+.back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.back:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 10px 25px rgba(36, 56, 94, 0.6),
+        0 0 20px var(--glow-color);
+    color: var(--text-white);
+}
+
+.back:hover::before {
+    left: 100%;
+}
+
+.back:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* === ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ДЛЯ 3D ЭФФЕКТА === */
+
+/* Плавающие элементы */
+.floating-element {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) translateZ(0); 
+    }
+    33% { 
+        transform: translateY(-20px) rotate(120deg) translateZ(10px); 
+    }
+    66% { 
+        transform: translateY(10px) rotate(240deg) translateZ(-10px); 
+    }
+}
+
+/* Контейнер для контента */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .border-text {
+        padding: 30px 20px;
+        margin: 20px auto;
+        border-radius: 30px;
+    }
+    
+    img {
+        margin: 15px auto;
+        border-radius: 15px;
+    }
+    
+    .h1 {
+        font-size: 2rem;
+        margin: 20px 0;
+    }
+    
+    .back {
+        padding: 12px 25px;
+        margin: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .border-text {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    .h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .h1::before,
+    .h1::after {
+        margin: 0 8px;
+    }
+}
+
+/* Специальные эффекты для темной темы */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+    }
+}
+
+/* Улучшенная доступность */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Стили для выделения текста */
+::selection {
+    background: var(--glow-color);
+    color: var(--text-white);
+    text-shadow: none;
+}
+
+/* Скрытие скроллбара для чистого вида */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-blue);
+}

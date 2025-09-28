@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Горный помощник - Безопасные походы в горы</title>
+    <link rel="stylesheet" href="./favourite_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Мобильное меню -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">×</button>
+        <nav>
+            <a href="index.html" class="mobile-menu-link">Главная</a>
+            <a href="routes.html" class="mobile-menu-link">Маршруты</a>
+            <a href="safety.html" class="mobile-menu-link">Безопасность</a>
+        </nav>
+    </div>
+
+    <!-- Хедер -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <button class="mobile-menu-toggle">☰</button>
+                <h1>🏔️ Горный помощник</h1>
+            </div>
+            <h2 class="offline-notice">MAMAY</h2>
+            <nav class="menu">
+                <a href="index.html" class="menu-btn">Главная</a>
+                <a href="routes.html" class="menu-btn">Маршруты</a>
+                <a href="safety.html" class="menu-btn">Безопасность</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main">
+        <!-- Герой-секция -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Безопасные походы в горы</h1>
+                <p>Мамай - самое сложное место для катания в России на горных снегоходах</p>
+                <button class="cta-button">Начать бесплатно</button>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">1,000+</span>
+                        <span class="stat-label">райдеров</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">маршрутов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">поддержка</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <span>🗺️</span>
+                    <p>Схемы маршрутов</p>
+                </div>
+                <div class="floating-card card-2">
+                    <span>👥</span>
+                    <p>Подробный справочник</p>
+                </div>
+                <div class="floating-card card-3">
+                    <span>🆘</span>
+                    <p>Запрещено на Мамае</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция возможностей -->
+        <section class="features">
+            <h2>Наши возможности</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Маршруты</h3>
+                    <p>Подробные схемы маршрутов и их особенности.Всегда знайте, где находитесь.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Сообщество</h3>
+                    <p>Присоединяйтесь к сообществу опытных туристов, делитесь маршрутами и получайте помощь.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆘</div>
+                    <h3>Запрещено на Мамае</h3>
+                    <p>Подробно расскажем про особенности вообще катания на Мамае и почему это самое сложное место для катания в России.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⛰️</div>
+                    <h3>Планировщик маршрутов</h3>
+                    <p>Создавайте и сохраняйте маршруты, делитесь ими с группой и отслеживайте прогресс.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌤️</div>
+                    <h3>Прогноз погоды</h3>
+                    <p>Актуальные прогнозы погоды для вашего местоположения с учетом высоты над уровнем моря.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Офлайн работа</h3>
+                    <p>На Мамае есть специальные радио-волны для экстренных ситуаций</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Видео слайдер -->
+        <section class="video-section">
+            <h2>Горные приключения</h2>
+            <div class="video-slider">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline class="video-slide active">
+                        <source src="./IMAGESFILE/IMG_4376.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео тег.
+                    </video>
+                    <video autoplay muted loop playsinline class="video-slide">
+                        <source src="./IMAGESFILE/IMG_5413.MP4" type="video/mp4">
+                        Ваш браузер не поддерживает видео тег.
+                    </video>
+                </div>
+                <div class="video-controls">
+                    <button class="video-prev">← Назад</button>
+                    <span class="video-counter">1/2</span>
+                    <button class="video-next">Вперед →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея -->
+        <section class="gallery-section">
+            <h2>❄️ MAMAY-BAIKAL GALLERY ❄️</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="./IMAGESFILE/show_we222.jpg" alt="Мамай - яркий уголок земли">
+                        <div class="gallery-overlay">
+                            <a href="pages_image/image_one.html" class="gallery-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">🏔️ Мамай - яркий уголок земли</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="./IMAGESFILE/show_face_me222.jpg" alt="Даван - место силы">
+                        <div class="gallery-overlay">
+                            <a href="pages_image/image_two.html" class="gallery-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">⛰️ Даван - место силы</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="./IMAGESFILE/show_father222.jpg" alt="Такие красоты бывают">
+                        <div class="gallery-overlay">
+                            <a href="pages_image/image_three.html" class="gallery-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">🌄 Такие красоты бывают</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="./IMAGESFILE/show_company222.jpg" alt="Вот такие бывают компании">
+                        <div class="gallery-overlay">
+                            <a href="pages_image/image_four.html" class="gallery-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">👥 Вот такие бывают компании</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="./IMAGESFILE/show_baikal222.jpg" alt="Красота Байкала">
+                        <div class="gallery-overlay">
+                            <a href="pages_image/image_five.html" class="gallery-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">💎 Красота Байкала</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="./IMAGESFILE/last_show222.jpg" alt="Закат Мамая">
+                        <div class="gallery-overlay">
+                            <a href="pages_image/image_six.html" class="gallery-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">🌅 Закат Мамая</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция призыва к действию -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Готовы к вашему следующему приключению?</h2>
+                <p>Присоединяйтесь к тысячам туристов, которые уже используют наш сервис для безопасных походов</p>
+                <button class="cta-button secondary">Начать бесплатно</button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Горный помощник</h3>
+                <p>Сервис для безопасных и увлекательных горных походов</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="routes.html">Маршруты</a></li>
+                    <li><a href="safety.html">Безопасность</a></li>
+                    <li><a href="login.html">Войти</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>Email: info@mountainhelper.ru</li>
+                    <li>Телефон: +7 (999) 123-45-67</li>
+                    <li>Техподдержка: 24/7</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Подписка</h4>
+                <p>Будьте в курсе новостей и обновлений</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш email" required>
+                    <button type="submit">Подписаться</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Горный помощник. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Видео слайдер
+        let currentVideo = 0;
+        const videos = document.querySelectorAll('.video-slide');
+        const counter = document.querySelector('.video-counter');
+        
+        function showVideo(index) {
+            videos.forEach(video => video.classList.remove('active'));
+            videos[index].classList.add('active');
+            counter.textContent = `${index + 1}/${videos.length}`;
+        }
+        
+        document.querySelector('.video-next').addEventListener('click', function() {
+            currentVideo = (currentVideo + 1) % videos.length;
+            showVideo(currentVideo);
+        });
+        
+        document.querySelector('.video-prev').addEventListener('click', function() {
+            currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+            showVideo(currentVideo);
+        });
+        
+        // Автопереключение видео каждые 5 секунд
+        setInterval(() => {
+            currentVideo = (currentVideo + 1) % videos.length;
+            showVideo(currentVideo);
+        }, 5000);
+        
+        // Плавная прокрутка для якорей
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Наблюдаем за элементами, которые должны появляться при скролле
+        document.querySelectorAll('.feature-card, .gallery-card').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
