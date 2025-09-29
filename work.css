@@ -2218,3 +2218,466 @@ body {
         transition: transform 0.1s ease;
     }
 }
+
+/* 🔥 СУПЕР МОБИЛЬНОЕ МЕНЮ 🔥 */
+@media (max-width: 768px) {
+    /* Скрываем десктопное меню */
+    .menu {
+        display: none !important;
+    }
+    
+    /* Стили для гамбургер-кнопки */
+    .mobile-menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        cursor: pointer;
+        padding: 0;
+        margin-right: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .mobile-menu-toggle::before {
+        content: '☰';
+        font-size: 20px;
+        color: white;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    /* Оверлей для меню */
+    .mobile-menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Само мобильное меню */
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 85%;
+        max-width: 300px;
+        height: 100%;
+        background: linear-gradient(160deg, #1e3c72 0%, #2a5298 50%, #1a2b5f 100%);
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 80px 25px 30px;
+        overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+        left: 0;
+    }
+    
+    /* Кнопка закрытия */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .mobile-menu-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: rotate(90deg);
+    }
+    
+    /* Навигация в меню */
+    .mobile-menu nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .mobile-menu-link {
+        color: white;
+        text-decoration: none;
+        padding: 18px 20px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        text-align: left;
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .mobile-menu-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+        transition: width 0.3s ease;
+    }
+    
+    .mobile-menu-link:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(5px);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .mobile-menu-link:hover::before {
+        width: 100%;
+    }
+    
+    .mobile-menu-link.active {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    }
+    
+    /* Анимации для ссылок */
+    .mobile-menu-link:nth-child(1) { animation: slideInRight 0.4s 0.1s both; }
+    .mobile-menu-link:nth-child(2) { animation: slideInRight 0.4s 0.2s both; }
+    .mobile-menu-link:nth-child(3) { animation: slideInRight 0.4s 0.3s both; }
+    
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    /* Запрет скролла тела при открытом меню */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Улучшение для очень маленьких экранов */
+    @media (max-width: 480px) {
+        .mobile-menu {
+            width: 90%;
+            padding: 70px 20px 20px;
+        }
+        
+        .mobile-menu-link {
+            padding: 16px 18px;
+            font-size: 15px;
+        }
+    }
+    
+    /* Особенности для iOS */
+    @supports (-webkit-touch-callout: none) {
+        .mobile-menu {
+            padding-bottom: 80px; /* Учитываем нижнюю панель iOS */
+        }
+    }
+}
+
+/* 🎯 JavaScript-классы для анимации гамбургера */
+.mobile-menu-toggle.active::before {
+    content: '✕';
+    font-size: 18px;
+}
+
+/* 🔥 Плавные переходы для всего меню */
+.mobile-menu * {
+    transition: all 0.3s ease;
+}
+
+/* ✨ Эффект параллакса для меню */
+.mobile-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* 🗺️ ФИКС ИНТЕРАКТИВНОЙ КАРТЫ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    /* Основной контейнер карты */
+    .interactive-map {
+        padding: 2rem 1rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .interactive-map h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+        margin-bottom: 1.5rem !important;
+        padding: 0 10px;
+    }
+    
+    /* Контейнер карты */
+    .map-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+    
+    /* Обертка карты и легенды */
+    .map-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+    
+    /* Легенда карты */
+    .map-legend {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.2rem !important;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        order: 2; /* Перемещаем легенду под карту */
+    }
+    
+    .map-legend h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+        text-align: center;
+        color: #2c3e50;
+    }
+    
+    .legend-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin-bottom: 8px !important;
+        font-size: 0.9rem;
+        padding: 5px 0;
+    }
+    
+    .color-dot {
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
+        border: 2px solid white !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    }
+    
+    /* Область с картой */
+    .map-area {
+        width: 100% !important;
+        order: 1; /* Карта теперь сверху */
+    }
+    
+    /* Контейнер реальной карты */
+    .real-map-container {
+        width: 100% !important;
+        height: 300px !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        border: 3px solid white !important;
+        position: relative !important;
+    }
+    
+    /* Сама картинка карты */
+    .real-map {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+    }
+    
+    /* Интерактивные элементы на карте (если есть) */
+    .map-marker, .map-point, .route-point {
+        transform: scale(0.8) !important;
+    }
+    
+    /* Улучшение для касаний */
+    .real-map-container {
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        touch-action: pan-x pan-y !important;
+    }
+    
+    /* Градиентная рамка для красоты */
+    .real-map-container::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+        border-radius: 18px;
+        z-index: -1;
+        opacity: 0.7;
+    }
+}
+
+/* 📱 Дополнительные исправления для очень маленьких экранов */
+@media (max-width: 480px) {
+    .interactive-map {
+        padding: 1.5rem 0.5rem !important;
+    }
+    
+    .interactive-map h2 {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .real-map-container {
+        height: 250px !important;
+    }
+    
+    .map-legend {
+        padding: 1rem !important;
+    }
+    
+    .legend-item {
+        font-size: 0.85rem;
+    }
+    
+    .color-dot {
+        width: 14px !important;
+        height: 14px !important;
+    }
+}
+
+/* 🎯 Горизонтальная ориентация на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    .real-map-container {
+        height: 200px !important;
+    }
+    
+    .map-wrapper {
+        gap: 1rem !important;
+    }
+    
+    .map-legend {
+        padding: 0.8rem !important;
+    }
+}
+
+/* ✨ Анимация появления карты */
+@media (max-width: 768px) {
+    .interactive-map {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: mapSlideUp 0.6s ease 0.3s forwards;
+    }
+    
+    @keyframes mapSlideUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Появление элементов карты с задержкой */
+    .real-map-container {
+        opacity: 0;
+        transform: scale(0.95);
+        animation: mapReveal 0.5s ease 0.5s forwards;
+    }
+    
+    @keyframes mapReveal {
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .map-legend {
+        opacity: 0;
+        animation: legendFadeIn 0.4s ease 0.7s forwards;
+    }
+    
+    @keyframes legendFadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* 🔥 Исправление конкретных проблем */
+@media (max-width: 768px) {
+    /* Убираем возможные фиксированные ширины */
+    .interactive-map * {
+        max-width: 100% !important;
+        min-width: auto !important;
+    }
+    
+    /* Исправляем отступы */
+    .map-container > * {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Предотвращаем горизонтальный скролл */
+    .interactive-map {
+        overflow: hidden !important;
+    }
+    
+    /* Улучшаем читаемость текста */
+    .map-legend span {
+        font-weight: 500 !important;
+        color: #2c3e50 !important;
+    }
+}
+
+/* 🎨 Цвета для легенды (если не заданы) */
+.color-dot.easy { background: #2ecc71 !important; }
+.color-dot.medium { background: #f39c12 !important; }
+.color-dot.hard { background: #e74c3c !important; }
+.color-dot.danger { background: #c0392b !important; }
+.color-dot.viewpoint { background: #9b59b6 !important; }
+.color-dot.service { background: #3498db !important; }
