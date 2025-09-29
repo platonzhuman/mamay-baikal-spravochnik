@@ -23,9 +23,10 @@
 
     <!-- Хедер -->
     <header>
+        <input type="checkbox" id="mobile-menu-toggle" style="display: none;">
         <div class="header-container">
             <div class="logo-section">
-                <button class="mobile-menu-toggle">☰</button>
+                <label for="mobile-menu-toggle" class="mobile-menu-toggle">☰</label>
                 <h1>🏔️ Горный помощник</h1>
             </div>
             <h2 class="offline-notice">MAMAY</h2>
@@ -33,6 +34,15 @@
                 <a href="index.html" class="menu-btn">Главная</a>
                 <a href="routes.html" class="menu-btn">Маршруты</a>
                 <a href="safety.html" class="menu-btn">Безопасность</a>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay"></div>
+        <div class="mobile-menu">
+            <label for="mobile-menu-toggle" class="mobile-menu-close">×</label>
+            <nav>
+                <a href="index.html" class="mobile-menu-link">Главная</a>
+                <a href="routes.html" class="mobile-menu-link">Маршруты</a>
+                <a href="safety.html" class="mobile-menu-link">Безопасность</a>
             </nav>
         </div>
     </header>

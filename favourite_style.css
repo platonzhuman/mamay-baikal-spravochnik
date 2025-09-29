@@ -1127,35 +1127,8 @@ body {
         gap: 10px;
     }
 }
-
-/* 🔥 СУПЕР МОБИЛЬНАЯ ВЕРСИЯ 🔥 */
+/* 🔥 МОБИЛЬНОЕ МЕНЮ НА ЧИСТОМ CSS 🔥 */
 @media (max-width: 768px) {
-    /* Фиксируем шапку */
-    header {
-        padding: 0.5rem 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-    }
-    
-    .header-container {
-        padding: 0 15px;
-        flex-wrap: nowrap;
-    }
-    
-    /* Логотип и меню */
-    .logo-section h1 {
-        font-size: 1.2rem !important;
-        white-space: nowrap;
-    }
-    
-    .offline-notice {
-        font-size: 0.9rem;
-        display: none; /* Скрываем на мобильных */
-    }
-    
     /* Скрываем десктопное меню */
     .menu {
         display: none !important;
@@ -1164,336 +1137,29 @@ body {
     /* Показываем гамбургер */
     .mobile-menu-toggle {
         display: block !important;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 5px;
-        margin-right: 10px;
-    }
-    
-    /* Мобильное меню */
-    .mobile-menu-overlay {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.7);
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .mobile-menu {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: -280px;
-        width: 280px;
-        height: 100%;
-        background: linear-gradient(180deg, #1e3c72, #2a5298);
-        z-index: 1000;
-        transition: left 0.3s ease;
-        padding: 60px 20px 20px;
-    }
-    
-    .mobile-menu.active {
-        left: 0;
-    }
-    
-    .mobile-menu-close {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    
-    .mobile-menu nav {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .mobile-menu-link {
-        color: white;
-        text-decoration: none;
-        padding: 15px 20px;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.1);
-        text-align: center;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-link:hover {
-        background: rgba(255,255,255,0.2);
-    }
-    
-    /* Основной контент */
-    .main {
-        margin-top: 60px;
-    }
-    
-    /* Герой секция - вертикальный стек */
-    .hero {
-        flex-direction: column;
-        padding: 2rem 1rem;
-        text-align: center;
-        min-height: auto;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem !important;
-        line-height: 1.2;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .hero-stats {
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem !important;
-    }
-    
-    .hero-visual {
-        display: none; /* Скрываем плавающие карточки на мобильных */
-    }
-    
-    /* Секция возможностей - одна колонка */
-    .features {
-        padding: 2rem 1rem;
-    }
-    
-    .features h2 {
-        font-size: 1.8rem !important;
-        margin-bottom: 2rem;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem;
-    }
-    
-    .feature-card {
-        padding: 1.5rem;
-        margin: 0 10px;
-    }
-    
-    /* Видео секция */
-    .video-section {
-        padding: 2rem 1rem;
-    }
-    
-    .video-section h2 {
-        font-size: 1.8rem !important;
-        text-align: center;
-    }
-    
-    .video-container {
-        height: 250px;
-        margin: 1rem 0;
-    }
-    
-    .video-controls {
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    /* Галерея - две колонки */
-    .gallery-section {
-        padding: 2rem 1rem;
-    }
-    
-    .gallery-section h2 {
-        font-size: 1.8rem !important;
-        text-align: center;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem;
-    }
-    
-    .gallery-card {
-        margin: 0;
-    }
-    
-    .gallery-caption {
-        font-size: 0.8rem;
-        padding: 10px 5px;
-    }
-    
-    /* CTA секция */
-    .cta-section {
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-    
-    .cta-content h2 {
-        font-size: 1.5rem !important;
-    }
-    
-    /* Футер */
-    .footer-content {
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
-        text-align: center;
-    }
-    
-    .footer-section {
-        padding: 0 10px;
-    }
-    
-    /* Улучшения для касаний */
-    .cta-button {
-        padding: 16px 32px !important;
-        font-size: 1.1rem !important;
-        min-height: 50px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    /* Убираем горизонтальный скролл */
-    body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    /* Плавные анимации */
-    * {
-        scroll-behavior: smooth;
-    }
-}
-
-/* 📱 Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .header-container {
-        padding: 0 10px;
-    }
-    
-    .logo-section h1 {
-        font-size: 1.1rem !important;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.8rem !important;
-    }
-    
-    .hero-stats {
-        gap: 1rem;
-    }
-    
-    .stat-number {
-        font-size: 1.3rem !important;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .features-grid {
-        gap: 0.8rem;
-    }
-    
-    .feature-card {
-        padding: 1.2rem;
-        margin: 0 5px;
-    }
-}
-
-/* 🎯 Особые улучшения для iOS */
-@supports (-webkit-touch-callout: none) {
-    .mobile-menu {
-        padding-bottom: 40px; /* Учитываем нижнюю панель iOS */
-    }
-}
-
-/* ✨ Анимации для мобильных */
-@media (max-width: 768px) {
-    .feature-card, .gallery-card {
-        transform: translateY(20px);
-        opacity: 0;
-        animation: slideUp 0.6s ease forwards;
-    }
-    
-    @keyframes slideUp {
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    /* Задержки для анимаций */
-    .feature-card:nth-child(1) { animation-delay: 0.1s; }
-    .feature-card:nth-child(2) { animation-delay: 0.2s; }
-    .feature-card:nth-child(3) { animation-delay: 0.3s; }
-    .feature-card:nth-child(4) { animation-delay: 0.4s; }
-    .feature-card:nth-child(5) { animation-delay: 0.5s; }
-    .feature-card:nth-child(6) { animation-delay: 0.6s; }
-}
-
-/* 🔥 СУПЕР МОБИЛЬНОЕ МЕНЮ 🔥 */
-@media (max-width: 768px) {
-    /* Скрываем десктопное меню */
-    .menu {
-        display: none !important;
-    }
-    
-    /* Стили для гамбургер-кнопки */
-    .mobile-menu-toggle {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 12px;
-        cursor: pointer;
-        padding: 0;
-        margin-right: 15px;
-        transition: all 0.3s ease;
         position: relative;
         z-index: 1001;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: white;
+        font-size: 1.3rem;
+        padding: 8px 12px;
+        cursor: pointer;
+        margin-right: 15px;
+        transition: all 0.3s ease;
     }
     
     .mobile-menu-toggle:hover {
         background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
     }
     
-    .mobile-menu-toggle::before {
-        content: '☰';
-        font-size: 20px;
-        color: white;
-        font-weight: bold;
-        transition: all 0.3s ease;
+    /* Скрываем чекбокс */
+    #mobile-menu-toggle {
+        display: none;
     }
     
-    /* Оверлей для меню */
+    /* Оверлей */
     .mobile-menu-overlay {
         display: block;
         position: fixed;
@@ -1503,36 +1169,27 @@ body {
         height: 100%;
         background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(5px);
-        z-index: 998;
+        z-index: 1998;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
     }
     
-    .mobile-menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    /* Само мобильное меню */
+    /* Мобильное меню */
     .mobile-menu {
         display: block;
         position: fixed;
         top: 0;
         left: -100%;
-        width: 85%;
-        max-width: 300px;
-        height: 100%;
-        background: linear-gradient(160deg, #1e3c72 0%, #2a5298 50%, #1a2b5f 100%);
-        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
-        z-index: 999;
-        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 80px 25px 30px;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(160deg, #1a2b3c 0%, #24385e 100%);
+        z-index: 1999;
+        transition: left 0.4s ease;
+        padding: 70px 25px 30px;
         overflow-y: auto;
-    }
-    
-    .mobile-menu.active {
-        left: 0;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* Кнопка закрытия */
@@ -1540,24 +1197,22 @@ body {
         position: absolute;
         top: 20px;
         right: 20px;
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         background: rgba(255, 255, 255, 0.1);
         border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 50%;
         color: white;
-        font-size: 24px;
+        font-size: 1.5rem;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-        z-index: 1000;
     }
     
     .mobile-menu-close:hover {
         background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
         transform: rotate(90deg);
     }
     
@@ -1566,34 +1221,21 @@ body {
         display: flex;
         flex-direction: column;
         gap: 8px;
+        margin-top: 20px;
     }
     
     .mobile-menu-link {
         color: white;
         text-decoration: none;
-        padding: 18px 20px;
-        border-radius: 12px;
+        padding: 15px 20px;
+        border-radius: 10px;
         background: rgba(255, 255, 255, 0.08);
-        text-align: left;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 16px;
         transition: all 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .mobile-menu-link::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
-        transition: width 0.3s ease;
+        display: block;
+        text-align: left;
     }
     
     .mobile-menu-link:hover {
@@ -1602,78 +1244,172 @@ body {
         border-color: rgba(255, 255, 255, 0.3);
     }
     
-    .mobile-menu-link:hover::before {
-        width: 100%;
-    }
-    
     .mobile-menu-link.active {
-        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-        border-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        background: linear-gradient(135deg, #ffc107, #ff8c00);
+        color: #1a2b3c;
+        border-color: #ffc107;
     }
     
-    /* Анимации для ссылок */
-    .mobile-menu-link:nth-child(1) { animation: slideInRight 0.4s 0.1s both; }
-    .mobile-menu-link:nth-child(2) { animation: slideInRight 0.4s 0.2s both; }
-    .mobile-menu-link:nth-child(3) { animation: slideInRight 0.4s 0.3s both; }
-    
-    @keyframes slideInRight {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    /* Логика открытия/закрытия на CSS */
+    #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+        opacity: 1;
+        visibility: visible;
     }
     
-    /* Запрет скролла тела при открытом меню */
-    body.menu-open {
+    #mobile-menu-toggle:checked ~ .mobile-menu {
+        left: 0;
+    }
+    
+    #mobile-menu-toggle:checked ~ .mobile-menu-toggle {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Закрытие меню при клике на оверлей или кнопку закрытия */
+    .mobile-menu-close:active ~ .mobile-menu,
+    .mobile-menu-overlay:active {
+        left: -100%;
+    }
+    
+    .mobile-menu-close:active ~ .mobile-menu-overlay {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    /* Хедер на мобильных */
+    header {
+        padding: 10px 0 !important;
+    }
+    
+    .header-container {
+        padding: 0 15px !important;
+        flex-wrap: nowrap;
+    }
+    
+    .logo-section h1 {
+        font-size: 1.2rem !important;
+        white-space: nowrap;
+        margin-left: 0 !important;
+    }
+    
+    .offline-notice {
+        display: none;
+    }
+    
+    /* Основной контент */
+    .main {
+        margin-top: 70px;
+        padding: 0 15px;
+    }
+}
+
+/* 📱 Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .mobile-menu {
+        width: 260px;
+        padding: 60px 20px 20px;
+    }
+    
+    .mobile-menu-link {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+    
+    .logo-section h1 {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* 🎯 Особенности для iOS */
+@supports (-webkit-touch-callout: none) {
+    .mobile-menu {
+        padding-bottom: 60px;
+    }
+}
+
+/* 🔥 ИСПРАВЛЕНИЕ ИНТЕРАКТИВНОЙ КАРТЫ */
+@media (max-width: 768px) {
+    .interactive-map {
+        padding: 2rem 1rem !important;
+    }
+    
+    .map-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .map-legend {
+        width: 100% !important;
+        order: 2;
+        padding: 1.2rem !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .map-area {
+        width: 100% !important;
+        order: 1;
+    }
+    
+    .real-map-container {
+        width: 100% !important;
+        height: 300px !important;
+        border-radius: 15px;
         overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.2);
     }
     
-    /* Улучшение для очень маленьких экранов */
-    @media (max-width: 480px) {
-        .mobile-menu {
-            width: 90%;
-            padding: 70px 20px 20px;
-        }
-        
-        .mobile-menu-link {
-            padding: 16px 18px;
-            font-size: 15px;
-        }
+    .real-map {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
     }
     
-    /* Особенности для iOS */
-    @supports (-webkit-touch-callout: none) {
-        .mobile-menu {
-            padding-bottom: 80px; /* Учитываем нижнюю панель iOS */
-        }
+    .map-legend h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .legend-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .color-dot {
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Цвета для легенды */
+    .color-dot.easy { background: #27ae60 !important; }
+    .color-dot.medium { background: #f39c12 !important; }
+    .color-dot.hard { background: #e74c3c !important; }
+    .color-dot.danger { background: #c0392b !important; }
+    .color-dot.viewpoint { background: #9b59b6 !important; }
+    .color-dot.service { background: #3498db !important; }
+}
+
+/* 📱 Мелкие исправления для карты */
+@media (max-width: 480px) {
+    .real-map-container {
+        height: 250px !important;
+    }
+    
+    .map-legend {
+        padding: 1rem !important;
+    }
+    
+    .legend-item {
+        font-size: 0.85rem;
     }
 }
 
-/* 🎯 JavaScript-классы для анимации гамбургера */
-.mobile-menu-toggle.active::before {
-    content: '✕';
-    font-size: 18px;
-}
-
-/* 🔥 Плавные переходы для всего меню */
-.mobile-menu * {
-    transition: all 0.3s ease;
-}
-
-/* ✨ Эффект параллакса для меню */
-.mobile-menu::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-    pointer-events: none;
-}

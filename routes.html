@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="./work.css">
 </head>
 <body>
-    <!-- Мобильное меню -->
-    <div class="mobile-menu-overlay"></div>
-    <div class="mobile-menu">
-        <button class="mobile-menu-close">×</button>
-        <nav>
-            <a href="index.html" class="mobile-menu-link">Главная</a>
-            <a href="routes.html" class="mobile-menu-link">Маршруты</a>
-            <a href="safety.html" class="mobile-menu-link">Безопасность</a>
-        </nav>
-    </div>
+    <!-- Чекбоксы для фильтрации -->
+    <input type="radio" name="route-filter" id="filter-all" class="filter-checkbox" checked>
+    <input type="radio" name="route-filter" id="filter-easy" class="filter-checkbox">
+    <input type="radio" name="route-filter" id="filter-medium" class="filter-checkbox">
+    <input type="radio" name="route-filter" id="filter-hard" class="filter-checkbox">
+
+    <!-- Чекбокс для мобильного меню -->
+    <input type="checkbox" id="mobile-menu-toggle" class="filter-checkbox">
 
     <!-- Хедер -->
     <header>
         <div class="header-container">
             <div class="logo-section">
-                <button class="mobile-menu-toggle">☰</button>
+                <label for="mobile-menu-toggle" class="mobile-menu-toggle">☰</label>
                 <h1>🏍️ Снегоходный Мамай</h1>
             </div>
             <h2 class="offline-notice">MAMAY-BAIKAL</h2>
@@ -33,6 +31,17 @@
             </nav>
         </div>
     </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <label for="mobile-menu-toggle" class="mobile-menu-close">×</label>
+        <nav>
+            <a href="index.html" class="mobile-menu-link">Главная</a>
+            <a href="routes.html" class="mobile-menu-link active">Маршруты</a>
+            <a href="safety.html" class="mobile-menu-link">Безопасность</a>
+        </nav>
+    </div>
     
     <main class="main">
         <!-- Заголовок страницы -->
@@ -62,22 +71,22 @@
             <div class="filter-container">
                 <h2>Выберите тип маршрута</h2>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">
+                    <label for="filter-all" class="filter-btn active" data-filter="all">
                         <span class="btn-icon">🗺️</span>
                         Все маршруты
-                    </button>
-                    <button class="filter-btn" data-filter="easy">
+                    </label>
+                    <label for="filter-easy" class="filter-btn" data-filter="easy">
                         <span class="btn-icon">🟢</span>
                         Для начинающих
-                    </button>
-                    <button class="filter-btn" data-filter="medium">
+                    </label>
+                    <label for="filter-medium" class="filter-btn" data-filter="medium">
                         <span class="btn-icon">🟡</span>
                         Средние
-                    </button>
-                    <button class="filter-btn" data-filter="hard">
+                    </label>
+                    <label for="filter-hard" class="filter-btn" data-filter="hard">
                         <span class="btn-icon">🔴</span>
                         Экстрим
-                    </button>
+                    </label>
                 </div>
             </div>
         </section>
@@ -117,7 +126,6 @@
                     </div>
                     <div class="route-actions">
                         <button class="route-details-btn">Детали маршрута</button>
-                      
                     </div>
                 </div>
             </div>
@@ -155,7 +163,6 @@
                     </div>
                     <div class="route-actions">
                         <button class="route-details-btn">Детали маршрута</button>
-                     
                     </div>
                 </div>
             </div>
@@ -193,55 +200,165 @@
                     </div>
                     <div class="route-actions">
                         <button class="route-details-btn">Детали маршрута</button>
-             
                     </div>
                 </div>
             </div>
 
-            <!-- Добавь остальные маршруты по аналогии -->
+            <!-- Маршрут 4 -->
+            <div class="route-card" data-difficulty="easy">
+                <div class="route-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=a76b0fbd06474eb5850fbdb1d4965d30_l-4820594-images-thumbs&n=13" alt="Лесная тропа">
+                    <span class="difficulty-badge easy">Новичок</span>
+                    <div class="route-overlay">
+                        <button class="route-preview-btn">3D просмотр</button>
+                    </div>
+                </div>
+                <div class="route-content">
+                    <h3>Лесная тропа</h3>
+                    <div class="route-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📏</span>
+                            <span class="meta-text">12 км</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">⏱️</span>
+                            <span class="meta-text">2-3 часа</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📈</span>
+                            <span class="meta-text">250 м</span>
+                        </div>
+                    </div>
+                    <p class="route-description">Спокойный маршрут через хвойный лес. Идеален для тренировок и семейных поездок.</p>
+                    <div class="route-features">
+                        <span class="feature-tag">Лесной</span>
+                        <span class="feature-tag">Спокойный</span>
+                        <span class="feature-tag">Тренировочный</span>
+                    </div>
+                    <div class="route-actions">
+                        <button class="route-details-btn">Детали маршрута</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Маршрут 5 -->
+            <div class="route-card" data-difficulty="medium">
+                <div class="route-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=238eb3977211cf0575c7ae903219959b_l-5236332-images-thumbs&n=13" alt="Горные озера">
+                    <span class="difficulty-badge medium">Продвинутый</span>
+                    <div class="route-overlay">
+                        <button class="route-preview-btn">3D просмотр</button>
+                    </div>
+                </div>
+                <div class="route-content">
+                    <h3>Горные озера</h3>
+                    <div class="route-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📏</span>
+                            <span class="meta-text">30 км</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">⏱️</span>
+                            <span class="meta-text">6-7 часов</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📈</span>
+                            <span class="meta-text">700 м</span>
+                        </div>
+                    </div>
+                    <p class="route-description">Маршрут через несколько горных озер с кристально чистой водой и потрясающими видами.</p>
+                    <div class="route-features">
+                        <span class="feature-tag">Озера</span>
+                        <span class="feature-tag">Живописный</span>
+                        <span class="feature-tag">Длительный</span>
+                    </div>
+                    <div class="route-actions">
+                        <button class="route-details-btn">Детали маршрута</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Маршрут 6 -->
+            <div class="route-card" data-difficulty="hard">
+                <div class="route-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=30fbe0555435dad4fa8a5cfd10027219_l-5255429-images-thumbs&n=13" alt="Вершина Мамая">
+                    <span class="difficulty-badge hard">Экстрим</span>
+                    <div class="route-overlay">
+                        <button class="route-preview-btn">3D просмотр</button>
+                    </div>
+                </div>
+                <div class="route-content">
+                    <h3>Вершина Мамая</h3>
+                    <div class="route-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📏</span>
+                            <span class="meta-text">22 км</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">⏱️</span>
+                            <span class="meta-text">7-8 часов</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📈</span>
+                            <span class="meta-text">1200 м</span>
+                        </div>
+                    </div>
+                    <p class="route-description">Восхождение на самую высокую точку Мамая. Только для опытных райдеров с отличной физической подготовкой.</p>
+                    <div class="route-features">
+                        <span class="feature-tag">Вершина</span>
+                        <span class="feature-tag">Экстрим</span>
+                        <span class="feature-tag">Высокогорье</span>
+                    </div>
+                    <div class="route-actions">
+                        <button class="route-details-btn">Детали маршрута</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Интерактивная карта -->
-        <!-- Интерактивная карта -->
-<section class="interactive-map">
-    <div class="map-container">
-        <h2>🎯 Интерактивная карта Мамая</h2>
-        
-        <div class="map-wrapper">
-            <div class="map-legend">
-                <h4>Легенда карты</h4>
-                <div class="legend-item">
-                    <span class="color-dot easy"></span>
-                    <span>Для начинающих</span>
-                </div>
-                <div class="legend-item">
-                    <span class="color-dot medium"></span>
-                    <span>Средние</span>
-                </div>
-                <div class="legend-item">
-                    <span class="color-dot hard"></span>
-                    <span>Экстрим</span>
-                </div>
-                <div class="legend-item">
-                    <span class="color-dot danger"></span>
-                    <span>Опасные зоны</span>
-                </div>
-                <div class="legend-item">
-                    <span class="color-dot viewpoint"></span>
-                    <span>Смотровые</span>
-                </div>
-                <div class="legend-item">
-                    <span class="color-dot service"></span>
-                    <span>Сервис</span>
+        <section class="interactive-map">
+            <div class="map-container">
+                <h2>🎯 Интерактивная карта Мамая</h2>
+                
+                <div class="map-wrapper">
+                    <div class="map-legend">
+                        <h4>Легенда карты</h4>
+                        <div class="legend-item">
+                            <span class="color-dot easy"></span>
+                            <span>Для начинающих</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-dot medium"></span>
+                            <span>Средние</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-dot hard"></span>
+                            <span>Экстрим</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-dot danger"></span>
+                            <span>Опасные зоны</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-dot viewpoint"></span>
+                            <span>Смотровые</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-dot service"></span>
+                            <span>Сервис</span>
+                        </div>
+                    </div>
+                    
+                    <div class="map-area">
+                        <div class="real-map-container">
+                            <img src="https://avatars.mds.yandex.net/i?id=9ed5b16eca500fd42df3d8e03cbae09c_l-5301652-images-thumbs&n=13" alt="Карта Мамая" class="real-map">
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="map-area">
-                <!-- Замени src на путь к твоей карте Мамая -->
-                <div class="real-map-container">
-                    <img src="https://avatars.mds.yandex.net/i?id=9ed5b16eca500fd42df3d8e03cbae09c_l-5301652-images-thumbs&n=13" alt="Карта Мамая" class="real-map">
-    </div>
-</section>
+        </section>
+
         <!-- Планировщик маршрутов -->
         <section class="route-planner">
             <div class="planner-container">
@@ -317,63 +434,5 @@
             <p>&copy; 2024 Снегоходный Мамай. Все права защищены.</p>
         </div>
     </footer>
-
-    <script>
-        // Фильтрация маршрутов
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.dataset.filter;
-                const routes = document.querySelectorAll('.route-card');
-                
-                routes.forEach(route => {
-                    if (filter === 'all' || route.dataset.difficulty === filter) {
-                        route.style.display = 'flex';
-                    } else {
-                        route.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Обработка кнопок деталей маршрута
-        document.querySelectorAll('.route-details-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const routeCard = this.closest('.route-card');
-                const routeName = routeCard.querySelector('h3').textContent;
-                const difficulty = routeCard.querySelector('.difficulty-badge').textContent;
-                
-                alert(`Детальная информация о маршруте:\n\n"${routeName}"\nСложность: ${difficulty}\n\nСкоро будет доступна полная карта с отметками!`);
-            });
-        });
-
-        // Обработка скачивания карт
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const routeName = this.closest('.route-card').querySelector('h3').textContent;
-                alert(`Карта маршрута "${routeName}" готовится к скачиванию...`);
-            });
-        });
-
-        // Превью маршрутов
-        document.querySelectorAll('.route-preview-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const routeName = this.closest('.route-card').querySelector('h3').textContent;
-                alert(`3D просмотр маршрута "${routeName}"\n\nЭта функция находится в разработке!`);
-            });
-        });
-
-        // Обработка формы планировщика
-        document.querySelector('.route-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const routeName = this.querySelector('input[type="text"]').value;
-            const difficulty = this.querySelector('.difficulty-select').value;
-            
-            alert(`Маршрут "${routeName}" сохранен!\nУровень сложности: ${difficulty}`);
-        });
-    </script>
 </body>
 </html>
-

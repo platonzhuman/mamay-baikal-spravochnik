@@ -7,22 +7,14 @@
     <link rel="stylesheet" href="./work-safety.css">
 </head>
 <body>
-    <!-- Мобильное меню -->
-    <div class="mobile-menu-overlay"></div>
-    <div class="mobile-menu">
-        <button class="mobile-menu-close">×</button>
-        <nav>
-            <a href="index.html" class="mobile-menu-link">Главная</a>
-            <a href="routes.html" class="mobile-menu-link">Маршруты</a>
-            <a href="safety.html" class="mobile-menu-link">Безопасность</a>
-        </nav>
-    </div>
+    <!-- Чекбокс для мобильного меню -->
+    <input type="checkbox" id="mobile-menu-toggle" class="filter-checkbox">
 
     <!-- Хедер -->
     <header>
         <div class="header-container">
             <div class="logo-section">
-                <button class="mobile-menu-toggle">☰</button>
+                <label for="mobile-menu-toggle" class="mobile-menu-toggle">☰</label>
                 <h1>🏍️ Снегоходный Мамай</h1>
             </div>
             <h2 class="offline-notice">MAMAY-BAIKAL</h2>
@@ -33,6 +25,17 @@
             </nav>
         </div>
     </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <label for="mobile-menu-toggle" class="mobile-menu-close">×</label>
+        <nav>
+            <a href="index.html" class="mobile-menu-link">Главная</a>
+            <a href="routes.html" class="mobile-menu-link">Маршруты</a>
+            <a href="safety.html" class="mobile-menu-link active">Безопасность</a>
+        </nav>
+    </div>
     
     <main class="main">
         <section class="page-header">
@@ -102,10 +105,11 @@
         <section class="safety-grid">
             <!-- Экстренная помощь -->
             <div class="safety-card emergency">
+                <input type="checkbox" id="emergency-toggle" class="safety-toggle">
                 <div class="safety-icon">🆘</div>
                 <h3>Экстренная помощь</h3>
                 <p>Пошаговые инструкции действий в ЧС на Мамае</p>
-                <button class="safety-btn" data-content="emergency">Узнать больше</button>
+                <label for="emergency-toggle" class="safety-btn">Узнать больше</label>
                 
                 <div class="safety-content" id="emergency-content">
                     <h4>🚨 ПРОТОКОЛ ДЕЙСТВИЙ В ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЯХ</h4>
@@ -155,10 +159,11 @@
 
             <!-- Снаряжение -->
             <div class="safety-card equipment">
+                <input type="checkbox" id="equipment-toggle" class="safety-toggle">
                 <div class="safety-icon">🎒</div>
                 <h3>Снаряжение</h3>
                 <p>Полный чек-лист экипировки для выживания</p>
-                <button class="safety-btn" data-content="equipment">Смотреть список</button>
+                <label for="equipment-toggle" class="safety-btn">Смотреть список</label>
                 
                 <div class="safety-content" id="equipment-content">
                     <h4>🎯 ПОЛНЫЙ ЧЕК-ЛИСТ СНАРЯЖЕНИЯ ДЛЯ МАМАЯ</h4>
@@ -205,10 +210,11 @@
 
             <!-- Погода -->
             <div class="safety-card weather">
+                <input type="checkbox" id="weather-toggle" class="safety-toggle">
                 <div class="safety-icon">🌤️</div>
                 <h3>Погода</h3>
                 <p>Как читать прогнозы и готовиться к изменениям</p>
-                <button class="safety-btn" data-content="weather">Изучить</button>
+                <label for="weather-toggle" class="safety-btn">Изучить</label>
                 
                 <div class="safety-content" id="weather-content">
                     <h4>🌪️ ПОГОДНЫЕ ОСОБЕННОСТИ МАМАЯ</h4>
@@ -252,10 +258,11 @@
 
             <!-- Навигация -->
             <div class="safety-card navigation">
+                <input type="checkbox" id="navigation-toggle" class="safety-toggle">
                 <div class="safety-icon">🧭</div>
                 <h3>Навигация</h3>
                 <p>Работа с картами и компасом в горах</p>
-                <button class="safety-btn" data-content="navigation">Научиться</button>
+                <label for="navigation-toggle" class="safety-btn">Научиться</label>
                 
                 <div class="safety-content" id="navigation-content">
                     <h4>🧭 СИСТЕМА НАВИГАЦИИ НА МАМАЕ</h4>
@@ -299,10 +306,11 @@
 
             <!-- Первая помощь -->
             <div class="safety-card firstaid">
+                <input type="checkbox" id="firstaid-toggle" class="safety-toggle">
                 <div class="safety-icon">💊</div>
                 <h3>Первая помощь</h3>
                 <p>Медицинская помощь в походных условиях</p>
-                <button class="safety-btn" data-content="firstaid">Изучить</button>
+                <label for="firstaid-toggle" class="safety-btn">Изучить</label>
                 
                 <div class="safety-content" id="firstaid-content">
                     <h4>🏥 ПЕРВАЯ ПОМОЩЬ В ЭКСТРЕМАЛЬНЫХ УСЛОВИЯХ</h4>
@@ -347,10 +355,11 @@
 
             <!-- Встреча с животными -->
             <div class="safety-card animals">
+                <input type="checkbox" id="animals-toggle" class="safety-toggle">
                 <div class="safety-icon">🐻</div>
                 <h3>Дикая природа</h3>
                 <p>Правила поведения при встрече с животными</p>
-                <button class="safety-btn" data-content="animals">Узнать</button>
+                <label for="animals-toggle" class="safety-btn">Узнать</label>
                 
                 <div class="safety-content" id="animals-content">
                     <h4>🐺 ВСТРЕЧИ С ДИКИМИ ЖИВОТНЫМИ НА МАМАЕ</h4>
@@ -370,7 +379,7 @@
                         <h5>🐺 ВОЛКИ (редко, но опасно):</h5>
                         <ul>
                             <li><strong>Не показывать страх</strong> - встать во весь рост</li>
-                            <li><strong>Шуметь:</strong> сигналisation, выстрелы, громкие звуки</li>
+                            <li><strong>Шуметь:</strong> сигналы, выстрелы, громкие звуки</li>
                             <li><strong>Не смотреть в глаза</strong> - воспринимают как вызов</li>
                             <li><strong>Отступать к технике</strong> - снегоход их отпугивает</li>
                         </ul>
@@ -504,52 +513,5 @@
             <p>&copy; 2024 Снегоходный Мамай. Помни: безопасность - твоя ответственность!</p>
         </div>
     </footer>
-
-    <script>
-        // Раскрытие/скрытие контента безопасности
-        document.querySelectorAll('.safety-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const contentId = this.getAttribute('data-content') + '-content';
-                const content = document.getElementById(contentId);
-                const allContents = document.querySelectorAll('.safety-content');
-                
-                // Скрываем все открытые блоки
-                allContents.forEach(item => {
-                    if (item !== content) {
-                        item.classList.remove('active');
-                    }
-                });
-                
-                // Переключаем текущий блок
-                content.classList.toggle('active');
-                
-                // Прокручиваем к контенту
-                if (content.classList.contains('active')) {
-                    content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
-        });
-
-        // Печать чек-листа
-        document.querySelector('.print-checklist').addEventListener('click', function() {
-            const checklistItems = document.querySelectorAll('.checklist-item input:checked');
-            if (checklistItems.length === 0) {
-                alert('Сначала отметьте выполненные пункты!');
-                return;
-            }
-            
-            alert('Чек-лист подготовлен к печати! Откройте диалог печати (Ctrl+P)');
-            window.print();
-        });
-
-        // Закрытие контента при клике вне его
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.safety-card')) {
-                document.querySelectorAll('.safety-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-            }
-        });
-    </script>
 </body>
 </html>

@@ -1389,6 +1389,7 @@ body {
     background: linear-gradient(135deg, #dc3545, #ffc107);
 }
 
+
 /* 🔥 МОБИЛЬНАЯ ВЕРСИЯ ДЛЯ СТРАНИЦЫ БЕЗОПАСНОСТИ 🔥 */
 @media (max-width: 768px) {
     /* Фиксируем шапку */
@@ -1397,7 +1398,7 @@ body {
         position: fixed;
         top: 0;
         width: 100%;
-        background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+        background: linear-gradient(135deg, #1a2b3c 0%, #24385e 100%) !important;
         box-shadow: 0 2px 20px rgba(0,0,0,0.3);
         z-index: 1000;
     }
@@ -1409,12 +1410,11 @@ body {
     
     /* Логотип и меню */
     .logo-section h1 {
-        font-size: 1.1rem !important;
+        font-size: 1.2rem !important;
         white-space: nowrap;
     }
     
     .offline-notice {
-        font-size: 0.8rem;
         display: none;
     }
     
@@ -1426,88 +1426,23 @@ body {
     /* Показываем гамбургер */
     .mobile-menu-toggle {
         display: block !important;
-        background: none;
-        border: none;
+        position: relative;
+        z-index: 1001;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
         color: white;
         font-size: 1.3rem;
+        padding: 8px 12px;
         cursor: pointer;
-        padding: 5px;
-        margin-right: 10px;
-    }
-    
-    /* Мобильное меню */
-    .mobile-menu-overlay {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.7);
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
+        margin-right: 15px;
         transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .mobile-menu {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: -280px;
-        width: 280px;
-        height: 100%;
-        background: linear-gradient(180deg, #1e3c72, #2a5298);
-        z-index: 1000;
-        transition: left 0.3s ease;
-        padding: 60px 20px 20px;
-    }
-    
-    .mobile-menu.active {
-        left: 0;
-    }
-    
-    .mobile-menu-close {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    
-    .mobile-menu nav {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .mobile-menu-link {
-        color: white;
-        text-decoration: none;
-        padding: 15px 20px;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.1);
-        text-align: center;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-link:hover {
-        background: rgba(255,255,255,0.2);
     }
     
     /* Основной контент */
     .main {
-        margin-top: 60px;
-        padding: 0 10px;
+        margin-top: 70px;
+        padding: 0 15px;
     }
     
     /* Заголовок страницы */
@@ -1636,6 +1571,13 @@ body {
         margin-top: 1.5rem !important;
         padding: 1.2rem !important;
         border-radius: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .safety-content.active {
+        max-height: 2000px;
     }
     
     .safety-content h4 {
@@ -1777,17 +1719,6 @@ body {
         align-items: center;
         justify-content: center;
     }
-    
-    /* Убираем горизонтальный скролл */
-    body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    /* Плавные анимации */
-    * {
-        scroll-behavior: smooth;
-    }
 }
 
 /* 📱 Для очень маленьких экранов */
@@ -1797,7 +1728,7 @@ body {
     }
     
     .logo-section h1 {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
     }
     
     .page-header h1 {
@@ -1825,18 +1756,37 @@ body {
     }
 }
 
-/* 🎯 Особые улучшения для iOS */
-@supports (-webkit-touch-callout: none) {
-    .mobile-menu {
-        padding-bottom: 40px;
-    }
-    
-    input, select, textarea {
-        font-size: 16px !important;
-    }
+/* 🎯 CSS ДЛЯ РАСКРЫВАЮЩИХСЯ БЛОКОВ БЕЗ JAVASCRIPT */
+.safety-content {
+    display: none;
 }
 
-/* ✨ Анимации для мобильных */
+.safety-toggle:checked ~ .safety-content {
+    display: block;
+}
+
+.safety-toggle {
+    display: none;
+}
+
+/* Стили для активных кнопок */
+.safety-toggle:checked + .safety-btn {
+    background: linear-gradient(135deg, #ffc107, #ff8c00);
+    color: #1a2b3c;
+}
+
+/* Индикатор раскрытия */
+.safety-btn::after {
+    content: ' ▼';
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.safety-toggle:checked + .safety-btn::after {
+    transform: rotate(180deg);
+}
+
+/* ✨ АНИМАЦИИ ДЛЯ МОБИЛЬНЫХ */
 @media (max-width: 768px) {
     .reason-card, .safety-card, .contact-card, .checklist-category {
         transform: translateY(20px);
@@ -1869,7 +1819,7 @@ body {
     .contact-card:nth-child(4) { animation-delay: 0.4s; }
 }
 
-/* 🔥 Эффекты при касании и раскрытие контента */
+/* 🔥 ЭФФЕКТЫ ПРИ КАСАНИИ */
 @media (max-width: 768px) {
     .safety-card:active {
         transform: scale(0.98);
@@ -1880,32 +1830,9 @@ body {
         transform: scale(0.95);
         transition: transform 0.1s ease;
     }
-    
-    /* Плавное раскрытие контента */
-    .safety-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .safety-content.active {
-        max-height: 2000px;
-        transition: all 0.5s ease;
-    }
-    
-    /* Индикатор раскрытия */
-    .safety-btn::after {
-        content: ' ▼';
-        font-size: 0.8em;
-        transition: transform 0.3s ease;
-    }
-    
-    .safety-content.active + .safety-btn::after {
-        transform: rotate(180deg);
-    }
 }
 
-/* 🎨 Улучшения читаемости для мобильных */
+/* 🎨 УЛУЧШЕНИЯ ЧИТАЕМОСТИ */
 @media (max-width: 768px) {
     .safety-content ul li strong {
         color: #e74c3c;
@@ -1927,228 +1854,4 @@ body {
     .nav-tip { border-left: 4px solid #9b59b6; }
     .medical-warning { border-left: 4px solid #e74c3c; }
     .animals-tip { border-left: 4px solid #d35400; }
-}
-
-/* 🔥 СУПЕР МОБИЛЬНОЕ МЕНЮ 🔥 */
-@media (max-width: 768px) {
-    /* Скрываем десктопное меню */
-    .menu {
-        display: none !important;
-    }
-    
-    /* Стили для гамбургер-кнопки */
-    .mobile-menu-toggle {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 12px;
-        cursor: pointer;
-        padding: 0;
-        margin-right: 15px;
-        transition: all 0.3s ease;
-        position: relative;
-        z-index: 1001;
-    }
-    
-    .mobile-menu-toggle:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
-    }
-    
-    .mobile-menu-toggle::before {
-        content: '☰';
-        font-size: 20px;
-        color: white;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
-    
-    /* Оверлей для меню */
-    .mobile-menu-overlay {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(5px);
-        z-index: 998;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    /* Само мобильное меню */
-    .mobile-menu {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 85%;
-        max-width: 300px;
-        height: 100%;
-        background: linear-gradient(160deg, #1e3c72 0%, #2a5298 50%, #1a2b5f 100%);
-        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
-        z-index: 999;
-        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 80px 25px 30px;
-        overflow-y: auto;
-    }
-    
-    .mobile-menu.active {
-        left: 0;
-    }
-    
-    /* Кнопка закрытия */
-    .mobile-menu-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        z-index: 1000;
-    }
-    
-    .mobile-menu-close:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: rotate(90deg);
-    }
-    
-    /* Навигация в меню */
-    .mobile-menu nav {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .mobile-menu-link {
-        color: white;
-        text-decoration: none;
-        padding: 18px 20px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.08);
-        text-align: left;
-        font-weight: 500;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .mobile-menu-link::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
-        transition: width 0.3s ease;
-    }
-    
-    .mobile-menu-link:hover {
-        background: rgba(255, 255, 255, 0.15);
-        transform: translateX(5px);
-        border-color: rgba(255, 255, 255, 0.3);
-    }
-    
-    .mobile-menu-link:hover::before {
-        width: 100%;
-    }
-    
-    .mobile-menu-link.active {
-        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-        border-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-    }
-    
-    /* Анимации для ссылок */
-    .mobile-menu-link:nth-child(1) { animation: slideInRight 0.4s 0.1s both; }
-    .mobile-menu-link:nth-child(2) { animation: slideInRight 0.4s 0.2s both; }
-    .mobile-menu-link:nth-child(3) { animation: slideInRight 0.4s 0.3s both; }
-    
-    @keyframes slideInRight {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    /* Запрет скролла тела при открытом меню */
-    body.menu-open {
-        overflow: hidden;
-    }
-    
-    /* Улучшение для очень маленьких экранов */
-    @media (max-width: 480px) {
-        .mobile-menu {
-            width: 90%;
-            padding: 70px 20px 20px;
-        }
-        
-        .mobile-menu-link {
-            padding: 16px 18px;
-            font-size: 15px;
-        }
-    }
-    
-    /* Особенности для iOS */
-    @supports (-webkit-touch-callout: none) {
-        .mobile-menu {
-            padding-bottom: 80px; /* Учитываем нижнюю панель iOS */
-        }
-    }
-}
-
-/* 🎯 JavaScript-классы для анимации гамбургера */
-.mobile-menu-toggle.active::before {
-    content: '✕';
-    font-size: 18px;
-}
-
-/* 🔥 Плавные переходы для всего меню */
-.mobile-menu * {
-    transition: all 0.3s ease;
-}
-
-/* ✨ Эффект параллакса для меню */
-.mobile-menu::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-    pointer-events: none;
 }
