@@ -1733,35 +1733,8 @@ body {
         margin-bottom: 20px;
     }
 }
-
-/* 🔥 МОБИЛЬНАЯ ВЕРСИЯ ДЛЯ СТРАНИЦЫ МАРШРУТОВ - ЧИСТЫЙ CSS 🔥 */
+/* 🔥 МОБИЛЬНОЕ МЕНЮ НА ЧИСТОМ CSS 🔥 */
 @media (max-width: 768px) {
-    /* Фиксируем шапку */
-    header {
-        padding: 0.5rem 0 !important;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #1a2b3c 0%, #24385e 100%) !important;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        z-index: 1000;
-    }
-    
-    .header-container {
-        padding: 0 15px !important;
-        flex-wrap: nowrap;
-    }
-    
-    /* Логотип и меню */
-    .logo-section h1 {
-        font-size: 1.2rem !important;
-        white-space: nowrap;
-    }
-    
-    .offline-notice {
-        display: none;
-    }
-    
     /* Скрываем десктопное меню */
     .menu {
         display: none !important;
@@ -1783,172 +1756,201 @@ body {
         transition: all 0.3s ease;
     }
     
+    .mobile-menu-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Скрываем чекбокс */
+    #mobile-menu-toggle {
+        display: none;
+    }
+    
+    /* Оверлей */
+    .mobile-menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        z-index: 1998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    /* Мобильное меню */
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100%;
+        background: linear-gradient(160deg, #1a2b3c 0%, #24385e 100%);
+        z-index: 1999;
+        transition: left 0.4s ease;
+        padding: 70px 25px 30px;
+        overflow-y: auto;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Кнопка закрытия */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+    }
+    
+    /* Навигация в меню */
+    .mobile-menu nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 20px;
+    }
+    
+    .mobile-menu-link {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: block;
+        text-align: left;
+    }
+    
+    .mobile-menu-link:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(5px);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .mobile-menu-link.active {
+        background: linear-gradient(135deg, #ffc107, #ff8c00);
+        color: #1a2b3c;
+        border-color: #ffc107;
+    }
+    
+    /* Логика открытия/закрытия на CSS */
+    #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    #mobile-menu-toggle:checked ~ .mobile-menu {
+        left: 0;
+    }
+    
+    #mobile-menu-toggle:checked ~ .mobile-menu-toggle {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Закрытие меню при клике на оверлей или кнопку закрытия */
+    .mobile-menu-close:active ~ .mobile-menu,
+    .mobile-menu-overlay:active {
+        left: -100%;
+    }
+    
+    .mobile-menu-close:active ~ .mobile-menu-overlay {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    /* Хедер на мобильных */
+    header {
+        padding: 10px 0 !important;
+    }
+    
+    .header-container {
+        padding: 0 15px !important;
+        flex-wrap: nowrap;
+    }
+    
+    .logo-section h1 {
+        font-size: 1.2rem !important;
+        white-space: nowrap;
+        margin-left: 0 !important;
+    }
+    
+    .offline-notice {
+        display: none;
+    }
+    
     /* Основной контент */
     .main {
         margin-top: 70px;
         padding: 0 15px;
     }
-    
-    /* Заголовок страницы */
-    .page-header {
-        padding: 2rem 1rem !important;
-        text-align: center;
+}
+
+/* 📱 Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .mobile-menu {
+        width: 260px;
+        padding: 60px 20px 20px;
     }
     
-    .page-title {
-        font-size: 1.8rem !important;
-        margin-bottom: 1rem !important;
+    .mobile-menu-link {
+        padding: 12px 16px;
+        font-size: 15px;
     }
     
-    .page-subtitle {
-        font-size: 1rem !important;
-        margin-bottom: 1.5rem !important;
+    .logo-section h1 {
+        font-size: 1.1rem !important;
     }
-    
-    .header-stats {
-        flex-direction: column;
-        gap: 1rem;
+}
+
+/* 🎯 Особенности для iOS */
+@supports (-webkit-touch-callout: none) {
+    .mobile-menu {
+        padding-bottom: 60px;
     }
-    
-    .stat-item {
-        padding: 10px;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem !important;
-    }
-    
-    /* Фильтры маршрутов */
-    .routes-filter {
-        padding: 1.5rem 0 !important;
-    }
-    
-    .filter-container h2 {
-        font-size: 1.3rem !important;
-        text-align: center;
-        margin-bottom: 1rem !important;
-    }
-    
-    .filter-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .filter-btn {
-        width: 100% !important;
-        padding: 12px 15px !important;
-        font-size: 0.9rem;
-        justify-content: flex-start;
-    }
-    
-    .btn-icon {
-        margin-right: 10px;
-        font-size: 1.1rem;
-    }
-    
-    /* Сетка маршрутов */
-    .routes-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem;
-        padding: 1rem 0 !important;
-    }
-    
-    .route-card {
-        flex-direction: column;
-        margin: 0 5px 1rem 5px !important;
-        border-radius: 15px !important;
-        overflow: hidden;
-    }
-    
-    .route-image {
-        height: 200px !important;
-    }
-    
-    .difficulty-badge {
-        top: 10px;
-        left: 10px;
-        padding: 6px 12px !important;
-        font-size: 0.8rem;
-    }
-    
-    .route-content {
-        padding: 1.2rem !important;
-    }
-    
-    .route-content h3 {
-        font-size: 1.3rem !important;
-        margin-bottom: 0.8rem !important;
-    }
-    
-    .route-meta {
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 1rem !important;
-    }
-    
-    .meta-item {
-        flex: 1 1 45%;
-        justify-content: flex-start;
-    }
-    
-    .route-description {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        margin-bottom: 1rem !important;
-    }
-    
-    .route-features {
-        flex-wrap: wrap;
-        gap: 5px;
-        margin-bottom: 1rem !important;
-    }
-    
-    .feature-tag {
-        font-size: 0.75rem;
-        padding: 4px 8px !important;
-    }
-    
-    .route-actions {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .route-details-btn, .download-btn {
-        width: 100% !important;
-        padding: 12px !important;
-        font-size: 0.9rem;
-    }
-    
-    /* Интерактивная карта */
+}
+
+/* 🔥 ИСПРАВЛЕНИЕ ИНТЕРАКТИВНОЙ КАРТЫ */
+@media (max-width: 768px) {
     .interactive-map {
         padding: 2rem 1rem !important;
     }
     
-    .interactive-map h2 {
-        font-size: 1.5rem !important;
-        text-align: center;
-        margin-bottom: 1.5rem !important;
-    }
-    
     .map-wrapper {
-        flex-direction: column;
-        gap: 1.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
     }
     
     .map-legend {
         width: 100% !important;
-        padding: 1.2rem;
         order: 2;
-    }
-    
-    .map-legend h4 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .legend-item {
-        font-size: 0.9rem;
-        margin-bottom: 8px;
+        padding: 1.2rem !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .map-area {
@@ -1957,236 +1959,62 @@ body {
     }
     
     .real-map-container {
+        width: 100% !important;
         height: 300px !important;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.2);
     }
     
     .real-map {
+        width: 100% !important;
+        height: 100% !important;
         object-fit: cover;
-        border-radius: 10px;
     }
     
-    /* Планировщик маршрутов */
-    .route-planner {
-        padding: 2rem 1rem !important;
-    }
-    
-    .route-planner h2 {
-        font-size: 1.5rem !important;
+    .map-legend h4 {
         text-align: center;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
     }
     
-    .planner-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .planner-form, .planner-preview {
-        width: 100% !important;
-    }
-    
-    .planner-form h3, .planner-preview h3 {
-        font-size: 1.2rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .form-group {
-        margin-bottom: 1rem !important;
-    }
-    
-    .form-group label {
+    .legend-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px;
+        margin-bottom: 8px;
         font-size: 0.9rem;
-        margin-bottom: 5px !important;
     }
     
-    input, select, textarea {
-        padding: 12px !important;
-        font-size: 16px !important;
+    .color-dot {
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 2px solid rgba(255, 255, 255, 0.3);
     }
     
-    .cta-button {
-        width: 100% !important;
-        padding: 15px !important;
-        font-size: 1rem;
-    }
-    
-    .preview-card {
-        padding: 1.2rem;
-    }
-    
-    /* Футер */
-    .footer-content {
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
-        text-align: center;
-        padding: 2rem 1rem !important;
-    }
-    
-    .footer-section {
-        padding: 0;
-    }
-    
-    .footer-section h3, .footer-section h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .footer-bottom {
-        padding: 1rem !important;
-        font-size: 0.8rem;
-    }
-    
-    /* Улучшения для касаний */
-    button, .route-details-btn, .download-btn, .filter-btn {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* Цвета для легенды */
+    .color-dot.easy { background: #27ae60 !important; }
+    .color-dot.medium { background: #f39c12 !important; }
+    .color-dot.hard { background: #e74c3c !important; }
+    .color-dot.danger { background: #c0392b !important; }
+    .color-dot.viewpoint { background: #9b59b6 !important; }
+    .color-dot.service { background: #3498db !important; }
 }
 
-/* 📱 Для очень маленьких экранов */
+/* 📱 Мелкие исправления для карты */
 @media (max-width: 480px) {
-    .header-container {
-        padding: 0 10px !important;
-    }
-    
-    .logo-section h1 {
-        font-size: 1.1rem !important;
-    }
-    
-    .page-title {
-        font-size: 1.6rem !important;
-    }
-    
-    .route-image {
-        height: 180px !important;
-    }
-    
-    .route-content {
-        padding: 1rem !important;
-    }
-    
     .real-map-container {
         height: 250px !important;
     }
     
-    .filter-btn {
-        padding: 14px 15px !important;
+    .map-legend {
+        padding: 1rem !important;
+    }
+    
+    .legend-item {
         font-size: 0.85rem;
     }
-}
-
-/* 🎯 CSS-ФИЛЬТРАЦИЯ МАРШРУТОВ БЕЗ JAVASCRIPT */
-/* Скрываем чекбоксы фильтров */
-.filter-checkbox {
-    display: none;
-}
-
-/* Стили для активных фильтров */
-.filter-btn {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active {
-    background: linear-gradient(135deg, #ffc107, #ff8c00);
-    color: #1a2b3c;
-    border-color: #ffc107;
-}
-
-/* Логика фильтрации на CSS */
-#filter-all:checked ~ .routes-grid .route-card {
-    display: flex !important;
-}
-
-#filter-easy:checked ~ .routes-grid .route-card:not([data-difficulty="easy"]) {
-    display: none !important;
-}
-
-#filter-medium:checked ~ .routes-grid .route-card:not([data-difficulty="medium"]) {
-    display: none !important;
-}
-
-#filter-hard:checked ~ .routes-grid .route-card:not([data-difficulty="hard"]) {
-    display: none !important;
-}
-
-/* Активация кнопок фильтров */
-#filter-all:checked ~ .routes-filter .filter-btn[data-filter="all"],
-#filter-easy:checked ~ .routes-filter .filter-btn[data-filter="easy"], 
-#filter-medium:checked ~ .routes-filter .filter-btn[data-filter="medium"],
-#filter-hard:checked ~ .routes-filter .filter-btn[data-filter="hard"] {
-    background: linear-gradient(135deg, #ffc107, #ff8c00);
-    color: #1a2b3c;
-    border-color: #ffc107;
-}
-
-/* ✨ АНИМАЦИИ ДЛЯ МОБИЛЬНЫХ */
-@media (max-width: 768px) {
-    .route-card {
-        transform: translateY(20px);
-        opacity: 0;
-        animation: slideUp 0.6s ease forwards;
-    }
-    
-    @keyframes slideUp {
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    /* Задержки для анимаций карточек */
-    .route-card:nth-child(1) { animation-delay: 0.1s; }
-    .route-card:nth-child(2) { animation-delay: 0.2s; }
-    .route-card:nth-child(3) { animation-delay: 0.3s; }
-    
-    /* Анимация появления фильтров */
-    .filter-btn {
-        transform: scale(0.9);
-        opacity: 0;
-        animation: scaleIn 0.4s ease forwards;
-    }
-    
-    @keyframes scaleIn {
-        to {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-    
-    .filter-btn:nth-child(1) { animation-delay: 0.1s; }
-    .filter-btn:nth-child(2) { animation-delay: 0.2s; }
-    .filter-btn:nth-child(3) { animation-delay: 0.3s; }
-    .filter-btn:nth-child(4) { animation-delay: 0.4s; }
-}
-
-/* 🔥 ЭФФЕКТЫ ПРИ КАСАНИИ */
-@media (max-width: 768px) {
-    .route-card:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
-    }
-    
-    .filter-btn:active, .route-details-btn:active {
-        transform: scale(0.95);
-        transition: transform 0.1s ease;
-    }
-}
-
-/* 🎨 ЦВЕТА ДЛЯ УРОВНЕЙ СЛОЖНОСТИ */
-.difficulty-badge.easy {
-    background: #27ae60 !important;
-    color: white !important;
-}
-
-.difficulty-badge.medium {
-    background: #f39c12 !important;
-    color: white !important;
-}
-
-.difficulty-badge.hard {
-    background: #e74c3c !important;
-    color: white !important;
 }

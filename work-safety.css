@@ -1389,35 +1389,8 @@ body {
     background: linear-gradient(135deg, #dc3545, #ffc107);
 }
 
-
-/* 🔥 МОБИЛЬНАЯ ВЕРСИЯ ДЛЯ СТРАНИЦЫ БЕЗОПАСНОСТИ 🔥 */
+/* 🔥 МОБИЛЬНОЕ МЕНЮ НА ЧИСТОМ CSS 🔥 */
 @media (max-width: 768px) {
-    /* Фиксируем шапку */
-    header {
-        padding: 0.5rem 0 !important;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #1a2b3c 0%, #24385e 100%) !important;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        z-index: 1000;
-    }
-    
-    .header-container {
-        padding: 0 15px !important;
-        flex-wrap: nowrap;
-    }
-    
-    /* Логотип и меню */
-    .logo-section h1 {
-        font-size: 1.2rem !important;
-        white-space: nowrap;
-    }
-    
-    .offline-notice {
-        display: none;
-    }
-    
     /* Скрываем десктопное меню */
     .menu {
         display: none !important;
@@ -1439,419 +1412,265 @@ body {
         transition: all 0.3s ease;
     }
     
+    .mobile-menu-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Скрываем чекбокс */
+    #mobile-menu-toggle {
+        display: none;
+    }
+    
+    /* Оверлей */
+    .mobile-menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        z-index: 1998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    /* Мобильное меню */
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100%;
+        background: linear-gradient(160deg, #1a2b3c 0%, #24385e 100%);
+        z-index: 1999;
+        transition: left 0.4s ease;
+        padding: 70px 25px 30px;
+        overflow-y: auto;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Кнопка закрытия */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+    }
+    
+    /* Навигация в меню */
+    .mobile-menu nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 20px;
+    }
+    
+    .mobile-menu-link {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: block;
+        text-align: left;
+    }
+    
+    .mobile-menu-link:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(5px);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .mobile-menu-link.active {
+        background: linear-gradient(135deg, #ffc107, #ff8c00);
+        color: #1a2b3c;
+        border-color: #ffc107;
+    }
+    
+    /* Логика открытия/закрытия на CSS */
+    #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    #mobile-menu-toggle:checked ~ .mobile-menu {
+        left: 0;
+    }
+    
+    #mobile-menu-toggle:checked ~ .mobile-menu-toggle {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Закрытие меню при клике на оверлей или кнопку закрытия */
+    .mobile-menu-close:active ~ .mobile-menu,
+    .mobile-menu-overlay:active {
+        left: -100%;
+    }
+    
+    .mobile-menu-close:active ~ .mobile-menu-overlay {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    /* Хедер на мобильных */
+    header {
+        padding: 10px 0 !important;
+    }
+    
+    .header-container {
+        padding: 0 15px !important;
+        flex-wrap: nowrap;
+    }
+    
+    .logo-section h1 {
+        font-size: 1.2rem !important;
+        white-space: nowrap;
+        margin-left: 0 !important;
+    }
+    
+    .offline-notice {
+        display: none;
+    }
+    
     /* Основной контент */
     .main {
         margin-top: 70px;
         padding: 0 15px;
     }
-    
-    /* Заголовок страницы */
-    .page-header {
-        padding: 2rem 1rem !important;
-        text-align: center;
-    }
-    
-    .page-header h1 {
-        font-size: 1.8rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .page-header p {
-        font-size: 1rem !important;
-        line-height: 1.4;
-    }
-    
-    /* Особенности Мамая */
-    .mamay-difficulty {
-        padding: 1.5rem 1rem !important;
-    }
-    
-    .difficulty-header h2 {
-        font-size: 1.4rem !important;
-        text-align: center;
-        margin-bottom: 1rem !important;
-    }
-    
-    .danger-badge {
-        font-size: 0.9rem !important;
-        padding: 8px 15px !important;
-        text-align: center;
-        display: block;
-        margin: 0 auto 1.5rem auto;
-    }
-    
-    .difficulty-content {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .difficulty-reasons {
-        grid-template-columns: 1fr !important;
-        gap: 1rem;
-    }
-    
-    .reason-card {
-        padding: 1.2rem !important;
-    }
-    
-    .reason-card h3 {
-        font-size: 1.2rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .reason-card ul li {
-        font-size: 0.9rem;
-        margin-bottom: 8px;
-        line-height: 1.4;
-    }
-    
-    .expert-warning {
-        padding: 1.5rem !important;
-        text-align: center;
-    }
-    
-    .warning-icon {
-        font-size: 2.5rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .warning-content h3 {
-        font-size: 1.3rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .warning-content ul li {
-        font-size: 0.9rem;
-        text-align: left;
-        margin-bottom: 5px;
-    }
-    
-    .warning-footer {
-        font-size: 0.9rem !important;
-        margin-top: 1rem !important;
-    }
-    
-    /* Сетка безопасности */
-    .safety-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem;
-        padding: 1rem 0 !important;
-    }
-    
-    .safety-card {
-        padding: 1.5rem !important;
-        margin: 0 5px 1rem 5px !important;
-        border-radius: 15px !important;
-    }
-    
-    .safety-icon {
-        font-size: 2.5rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .safety-card h3 {
-        font-size: 1.3rem !important;
-        margin-bottom: 0.8rem !important;
-    }
-    
-    .safety-card > p {
-        font-size: 0.9rem;
-        margin-bottom: 1.2rem !important;
-        line-height: 1.4;
-    }
-    
-    .safety-btn {
-        width: 100% !important;
-        padding: 12px !important;
-        font-size: 0.9rem;
-    }
-    
-    /* Контент безопасности (раскрывающийся) */
-    .safety-content {
-        margin-top: 1.5rem !important;
-        padding: 1.2rem !important;
-        border-radius: 10px;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .safety-content.active {
-        max-height: 2000px;
-    }
-    
-    .safety-content h4 {
-        font-size: 1.2rem !important;
-        margin-bottom: 1.2rem !important;
-        text-align: center;
-    }
-    
-    .instruction-section, .gear-category, .weather-section, 
-    .nav-section, .medical-section, .animals-section {
-        margin-bottom: 1.5rem !important;
-    }
-    
-    .instruction-section h5, .gear-category h5, .weather-section h5,
-    .nav-section h5, .medical-section h5, .animals-section h5 {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.8rem !important;
-        color: #2c3e50;
-    }
-    
-    .safety-content ul li {
-        font-size: 0.85rem;
-        margin-bottom: 6px;
-        line-height: 1.4;
-    }
-    
-    .emergency-kit, .pro-tip, .weather-warning, .nav-tip, .medical-warning, .animals-tip {
-        padding: 1rem !important;
-        font-size: 0.9rem;
-        border-radius: 8px;
-        margin-top: 1rem !important;
-    }
-    
-    /* Экстренные контакты */
-    .emergency-section {
-        padding: 2rem 1rem !important;
-    }
-    
-    .emergency-section h2 {
-        font-size: 1.5rem !important;
-        text-align: center;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    .emergency-contacts {
-        grid-template-columns: 1fr !important;
-        gap: 1rem;
-    }
-    
-    .contact-card {
-        padding: 1.5rem !important;
-        text-align: center;
-    }
-    
-    .contact-card h3 {
-        font-size: 1.1rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .phone {
-        font-size: 1.5rem !important;
-        margin-bottom: 0.8rem !important;
-    }
-    
-    .contact-card p:last-child {
-        font-size: 0.9rem;
-    }
-    
-    /* Чек-лист */
-    .checklist-section {
-        padding: 2rem 1rem !important;
-    }
-    
-    .checklist-section h2 {
-        font-size: 1.5rem !important;
-        text-align: center;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    .checklist {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem;
-    }
-    
-    .checklist-category {
-        padding: 1.2rem !important;
-    }
-    
-    .checklist-category h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 1rem !important;
-        text-align: center;
-    }
-    
-    .checklist-item {
-        margin-bottom: 0.8rem !important;
-        padding: 10px;
-    }
-    
-    .checklist-item label {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-    
-    .print-checklist {
-        width: 100% !important;
-        padding: 15px !important;
-        font-size: 1rem;
-        margin-top: 1.5rem !important;
-    }
-    
-    /* Футер */
-    .footer-content {
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
-        text-align: center;
-        padding: 2rem 1rem !important;
-    }
-    
-    .footer-section {
-        padding: 0;
-    }
-    
-    .footer-section h3, .footer-section h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .footer-bottom {
-        padding: 1rem !important;
-        font-size: 0.8rem;
-        text-align: center;
-    }
-    
-    /* Улучшения для касаний */
-    button, .safety-btn, .print-checklist {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 }
 
 /* 📱 Для очень маленьких экранов */
 @media (max-width: 480px) {
-    .header-container {
-        padding: 0 10px !important;
+    .mobile-menu {
+        width: 260px;
+        padding: 60px 20px 20px;
+    }
+    
+    .mobile-menu-link {
+        padding: 12px 16px;
+        font-size: 15px;
     }
     
     .logo-section h1 {
         font-size: 1.1rem !important;
     }
-    
-    .page-header h1 {
-        font-size: 1.6rem !important;
+}
+
+/* 🎯 Особенности для iOS */
+@supports (-webkit-touch-callout: none) {
+    .mobile-menu {
+        padding-bottom: 60px;
+    }
+}
+
+/* 🔥 ИСПРАВЛЕНИЕ ИНТЕРАКТИВНОЙ КАРТЫ */
+@media (max-width: 768px) {
+    .interactive-map {
+        padding: 2rem 1rem !important;
     }
     
-    .safety-card {
+    .map-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .map-legend {
+        width: 100% !important;
+        order: 2;
         padding: 1.2rem !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .safety-content {
+    .map-area {
+        width: 100% !important;
+        order: 1;
+    }
+    
+    .real-map-container {
+        width: 100% !important;
+        height: 300px !important;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .real-map {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+    
+    .map-legend h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .legend-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .color-dot {
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Цвета для легенды */
+    .color-dot.easy { background: #27ae60 !important; }
+    .color-dot.medium { background: #f39c12 !important; }
+    .color-dot.hard { background: #e74c3c !important; }
+    .color-dot.danger { background: #c0392b !important; }
+    .color-dot.viewpoint { background: #9b59b6 !important; }
+    .color-dot.service { background: #3498db !important; }
+}
+
+/* 📱 Мелкие исправления для карты */
+@media (max-width: 480px) {
+    .real-map-container {
+        height: 250px !important;
+    }
+    
+    .map-legend {
         padding: 1rem !important;
     }
     
-    .contact-card {
-        padding: 1.2rem !important;
+    .legend-item {
+        font-size: 0.85rem;
     }
-    
-    .phone {
-        font-size: 1.3rem !important;
-    }
-    
-    .checklist-category {
-        padding: 1rem !important;
-    }
-}
-
-/* 🎯 CSS ДЛЯ РАСКРЫВАЮЩИХСЯ БЛОКОВ БЕЗ JAVASCRIPT */
-.safety-content {
-    display: none;
-}
-
-.safety-toggle:checked ~ .safety-content {
-    display: block;
-}
-
-.safety-toggle {
-    display: none;
-}
-
-/* Стили для активных кнопок */
-.safety-toggle:checked + .safety-btn {
-    background: linear-gradient(135deg, #ffc107, #ff8c00);
-    color: #1a2b3c;
-}
-
-/* Индикатор раскрытия */
-.safety-btn::after {
-    content: ' ▼';
-    font-size: 0.8em;
-    transition: transform 0.3s ease;
-}
-
-.safety-toggle:checked + .safety-btn::after {
-    transform: rotate(180deg);
-}
-
-/* ✨ АНИМАЦИИ ДЛЯ МОБИЛЬНЫХ */
-@media (max-width: 768px) {
-    .reason-card, .safety-card, .contact-card, .checklist-category {
-        transform: translateY(20px);
-        opacity: 0;
-        animation: slideUp 0.6s ease forwards;
-    }
-    
-    @keyframes slideUp {
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    /* Задержки для анимаций */
-    .reason-card:nth-child(1) { animation-delay: 0.1s; }
-    .reason-card:nth-child(2) { animation-delay: 0.2s; }
-    .reason-card:nth-child(3) { animation-delay: 0.3s; }
-    
-    .safety-card:nth-child(1) { animation-delay: 0.1s; }
-    .safety-card:nth-child(2) { animation-delay: 0.2s; }
-    .safety-card:nth-child(3) { animation-delay: 0.3s; }
-    .safety-card:nth-child(4) { animation-delay: 0.4s; }
-    .safety-card:nth-child(5) { animation-delay: 0.5s; }
-    .safety-card:nth-child(6) { animation-delay: 0.6s; }
-    
-    .contact-card:nth-child(1) { animation-delay: 0.1s; }
-    .contact-card:nth-child(2) { animation-delay: 0.2s; }
-    .contact-card:nth-child(3) { animation-delay: 0.3s; }
-    .contact-card:nth-child(4) { animation-delay: 0.4s; }
-}
-
-/* 🔥 ЭФФЕКТЫ ПРИ КАСАНИИ */
-@media (max-width: 768px) {
-    .safety-card:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
-    }
-    
-    .safety-btn:active, .print-checklist:active {
-        transform: scale(0.95);
-        transition: transform 0.1s ease;
-    }
-}
-
-/* 🎨 УЛУЧШЕНИЯ ЧИТАЕМОСТИ */
-@media (max-width: 768px) {
-    .safety-content ul li strong {
-        color: #e74c3c;
-        font-weight: 600;
-    }
-    
-    .instruction-section, .gear-category, .weather-section,
-    .nav-section, .medical-section, .animals-section {
-        background: rgba(255,255,255,0.5);
-        padding: 1rem;
-        border-radius: 8px;
-        border-left: 4px solid #3498db;
-    }
-    
-    /* Цветовые акценты для разных категорий */
-    .emergency-kit { border-left: 4px solid #e74c3c; }
-    .pro-tip { border-left: 4px solid #2ecc71; }
-    .weather-warning { border-left: 4px solid #f39c12; }
-    .nav-tip { border-left: 4px solid #9b59b6; }
-    .medical-warning { border-left: 4px solid #e74c3c; }
-    .animals-tip { border-left: 4px solid #d35400; }
 }
