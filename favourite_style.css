@@ -1127,3 +1127,178 @@ body {
         gap: 10px;
     }
 }
+
+/* Мобильная адаптация для сайта Mamay-Baikal */
+@media (max-width: 768px) {
+    /* Общие стили */
+    body {
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Контейнер */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    
+    /* Заголовки */
+    h1 {
+        font-size: 24px !important;
+        text-align: center;
+        margin: 15px 0 !important;
+    }
+    
+    h2 {
+        font-size: 20px !important;
+        margin: 12px 0 !important;
+    }
+    
+    h3 {
+        font-size: 18px !important;
+    }
+    
+    /* Навигация */
+    nav {
+        padding: 10px 0 !important;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 10px;
+    }
+    
+    nav li {
+        width: 100%;
+        margin: 0 !important;
+    }
+    
+    nav a {
+        display: block;
+        padding: 12px 15px !important;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    /* Основной контент */
+    main {
+        padding: 10px 0 !important;
+    }
+    
+    /* Секции */
+    section {
+        margin: 15px 0 !important;
+        padding: 15px !important;
+    }
+    
+    /* Карточки и блоки */
+    .card, .item, .block, div > div {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 15px !important;
+    }
+    
+    /* Таблицы */
+    table {
+        font-size: 12px;
+        width: 100% !important;
+    }
+    
+    table, th, td {
+        padding: 8px 4px !important;
+    }
+    
+    /* Изображения */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Кнопки */
+    button, .btn, input[type="submit"] {
+        width: 100% !important;
+        padding: 14px !important;
+        font-size: 16px;
+        margin: 5px 0 !important;
+    }
+    
+    /* Формы */
+    input, select, textarea {
+        font-size: 16px !important;
+        padding: 12px !important;
+        width: 100% !important;
+        margin: 5px 0 !important;
+    }
+    
+    /* Футер */
+    footer {
+        padding: 20px 15px !important;
+        text-align: center;
+    }
+    
+    /* Улучшение скролла */
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    h1 {
+        font-size: 22px !important;
+    }
+    
+    h2 {
+        font-size: 18px !important;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    nav a {
+        padding: 14px 10px !important;
+        font-size: 15px;
+    }
+}
+
+/* Планшеты */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+    }
+    
+    nav li {
+        flex: 1 1 45%;
+        margin: 5px !important;
+    }
+}
+
+/* Улучшение касаний для мобильных */
+@media (max-width: 768px) {
+    a, button, .clickable {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Убираем горизонтальный скролл */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
