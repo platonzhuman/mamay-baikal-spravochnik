@@ -1734,168 +1734,374 @@ body {
     }
 }
 
-/* Мобильная адаптация для сайта Mamay-Baikal */
+/* 🔥 МОБИЛЬНАЯ ВЕРСИЯ ДЛЯ СТРАНИЦЫ МАРШРУТОВ 🔥 */
 @media (max-width: 768px) {
-    /* Общие стили */
-    body {
-        font-size: 14px;
-        line-height: 1.4;
-        padding: 0;
-        margin: 0;
-    }
-    
-    /* Контейнер */
-    .container {
+    /* Фиксируем шапку */
+    header {
+        padding: 0.5rem 0 !important;
+        position: fixed;
+        top: 0;
         width: 100%;
-        padding: 0 15px;
-        margin: 0 auto;
+        background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        z-index: 1000;
     }
     
-    /* Заголовки */
-    h1 {
-        font-size: 24px !important;
-        text-align: center;
-        margin: 15px 0 !important;
+    .header-container {
+        padding: 0 15px !important;
+        flex-wrap: nowrap;
     }
     
-    h2 {
-        font-size: 20px !important;
-        margin: 12px 0 !important;
+    /* Логотип и меню */
+    .logo-section h1 {
+        font-size: 1.1rem !important;
+        white-space: nowrap;
     }
     
-    h3 {
-        font-size: 18px !important;
+    .offline-notice {
+        font-size: 0.8rem;
+        display: none;
     }
     
-    /* Навигация */
-    nav {
-        padding: 10px 0 !important;
+    /* Скрываем десктопное меню */
+    .menu {
+        display: none !important;
     }
     
-    nav ul {
-        flex-direction: column;
-        gap: 8px;
-        padding: 0 10px;
+    /* Показываем гамбургер */
+    .mobile-menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.3rem;
+        cursor: pointer;
+        padding: 5px;
+        margin-right: 10px;
     }
     
-    nav li {
-        width: 100%;
-        margin: 0 !important;
-    }
-    
-    nav a {
+    /* Мобильное меню */
+    .mobile-menu-overlay {
         display: block;
-        padding: 12px 15px !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100%;
+        background: linear-gradient(180deg, #1e3c72, #2a5298);
+        z-index: 1000;
+        transition: left 0.3s ease;
+        padding: 60px 20px 20px;
+    }
+    
+    .mobile-menu.active {
+        left: 0;
+    }
+    
+    .mobile-menu-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    
+    .mobile-menu nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .mobile-menu-link {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.1);
         text-align: center;
-        font-size: 16px;
-        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-link:hover {
+        background: rgba(255,255,255,0.2);
     }
     
     /* Основной контент */
-    main {
-        padding: 10px 0 !important;
-    }
-    
-    /* Секции */
-    section {
-        margin: 15px 0 !important;
-        padding: 15px !important;
-    }
-    
-    /* Карточки и блоки */
-    .card, .item, .block, div > div {
-        width: 100% !important;
-        margin: 10px 0 !important;
-        padding: 15px !important;
-    }
-    
-    /* Таблицы */
-    table {
-        font-size: 12px;
-        width: 100% !important;
-    }
-    
-    table, th, td {
-        padding: 8px 4px !important;
-    }
-    
-    /* Изображения */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-    
-    /* Кнопки */
-    button, .btn, input[type="submit"] {
-        width: 100% !important;
-        padding: 14px !important;
-        font-size: 16px;
-        margin: 5px 0 !important;
-    }
-    
-    /* Формы */
-    input, select, textarea {
-        font-size: 16px !important;
-        padding: 12px !important;
-        width: 100% !important;
-        margin: 5px 0 !important;
-    }
-    
-    /* Футер */
-    footer {
-        padding: 20px 15px !important;
-        text-align: center;
-    }
-    
-    /* Улучшение скролла */
-    html {
-        -webkit-overflow-scrolling: touch;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    body {
-        font-size: 13px;
-    }
-    
-    h1 {
-        font-size: 22px !important;
-    }
-    
-    h2 {
-        font-size: 18px !important;
-    }
-    
-    .container {
+    .main {
+        margin-top: 60px;
         padding: 0 10px;
     }
     
-    nav a {
-        padding: 14px 10px !important;
-        font-size: 15px;
-    }
-}
-
-/* Планшеты */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        max-width: 95%;
+    /* Заголовок страницы */
+    .page-header {
+        padding: 2rem 1rem !important;
+        text-align: center;
     }
     
-    nav ul {
+    .page-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .header-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Фильтры маршрутов */
+    .routes-filter {
+        padding: 1.5rem 0 !important;
+    }
+    
+    .filter-container h2 {
+        font-size: 1.3rem !important;
+        text-align: center;
+        margin-bottom: 1rem !important;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        width: 100% !important;
+        padding: 12px 15px !important;
+        font-size: 0.9rem;
+        justify-content: flex-start;
+    }
+    
+    .btn-icon {
+        margin-right: 10px;
+        font-size: 1.1rem;
+    }
+    
+    /* Сетка маршрутов */
+    .routes-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+        padding: 1rem 0 !important;
+    }
+    
+    .route-card {
+        flex-direction: column;
+        margin: 0 5px 1rem 5px !important;
+        border-radius: 15px !important;
+        overflow: hidden;
+    }
+    
+    .route-image {
+        height: 200px !important;
+    }
+    
+    .difficulty-badge {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px !important;
+        font-size: 0.8rem;
+    }
+    
+    .route-content {
+        padding: 1.2rem !important;
+    }
+    
+    .route-content h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .route-meta {
         flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 1rem !important;
     }
     
-    nav li {
+    .meta-item {
         flex: 1 1 45%;
-        margin: 5px !important;
+        justify-content: flex-start;
     }
-}
-
-/* Улучшение касаний для мобильных */
-@media (max-width: 768px) {
-    a, button, .clickable {
+    
+    .route-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 1rem !important;
+    }
+    
+    .route-features {
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 1rem !important;
+    }
+    
+    .feature-tag {
+        font-size: 0.75rem;
+        padding: 4px 8px !important;
+    }
+    
+    .route-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .route-details-btn, .download-btn {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 0.9rem;
+    }
+    
+    /* Интерактивная карта */
+    .interactive-map {
+        padding: 2rem 1rem !important;
+    }
+    
+    .interactive-map h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .map-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .map-legend {
+        width: 100% !important;
+        padding: 1.2rem;
+    }
+    
+    .map-legend h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .legend-item {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .map-area {
+        width: 100% !important;
+    }
+    
+    .real-map-container {
+        height: 300px !important;
+    }
+    
+    .real-map {
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    /* Планировщик маршрутов */
+    .route-planner {
+        padding: 2rem 1rem !important;
+    }
+    
+    .route-planner h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .planner-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .planner-form, .planner-preview {
+        width: 100% !important;
+    }
+    
+    .planner-form h3, .planner-preview h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 5px !important;
+    }
+    
+    input, select, textarea {
+        padding: 12px !important;
+        font-size: 16px !important; /* Для iOS */
+    }
+    
+    .cta-button {
+        width: 100% !important;
+        padding: 15px !important;
+        font-size: 1rem;
+    }
+    
+    .preview-card {
+        padding: 1.2rem;
+    }
+    
+    /* Футер */
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+        text-align: center;
+        padding: 2rem 1rem !important;
+    }
+    
+    .footer-section {
+        padding: 0;
+    }
+    
+    .footer-section h3, .footer-section h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .footer-bottom {
+        padding: 1rem !important;
+        font-size: 0.8rem;
+    }
+    
+    /* Улучшения для касаний */
+    button, .route-details-btn, .download-btn, .filter-btn {
         min-height: 44px;
         display: flex;
         align-items: center;
@@ -1906,5 +2112,109 @@ body {
     body {
         overflow-x: hidden;
         width: 100%;
+    }
+    
+    /* Плавные анимации */
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+/* 📱 Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .header-container {
+        padding: 0 10px !important;
+    }
+    
+    .logo-section h1 {
+        font-size: 1rem !important;
+    }
+    
+    .page-title {
+        font-size: 1.6rem !important;
+    }
+    
+    .route-image {
+        height: 180px !important;
+    }
+    
+    .route-content {
+        padding: 1rem !important;
+    }
+    
+    .real-map-container {
+        height: 250px !important;
+    }
+    
+    .filter-btn {
+        padding: 14px 15px !important;
+        font-size: 0.85rem;
+    }
+}
+
+/* 🎯 Особые улучшения для iOS */
+@supports (-webkit-touch-callout: none) {
+    .mobile-menu {
+        padding-bottom: 40px;
+    }
+    
+    input, select, textarea {
+        font-size: 16px !important; /* Предотвращает зум */
+    }
+}
+
+/* ✨ Анимации для мобильных */
+@media (max-width: 768px) {
+    .route-card {
+        transform: translateY(20px);
+        opacity: 0;
+        animation: slideUp 0.6s ease forwards;
+    }
+    
+    @keyframes slideUp {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    /* Задержки для анимаций карточек */
+    .route-card:nth-child(1) { animation-delay: 0.1s; }
+    .route-card:nth-child(2) { animation-delay: 0.2s; }
+    .route-card:nth-child(3) { animation-delay: 0.3s; }
+    .route-card:nth-child(4) { animation-delay: 0.4s; }
+    .route-card:nth-child(5) { animation-delay: 0.5s; }
+    .route-card:nth-child(6) { animation-delay: 0.6s; }
+    
+    /* Анимация появления фильтров */
+    .filter-btn {
+        transform: scale(0.9);
+        opacity: 0;
+        animation: scaleIn 0.4s ease forwards;
+    }
+    
+    @keyframes scaleIn {
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    .filter-btn:nth-child(1) { animation-delay: 0.1s; }
+    .filter-btn:nth-child(2) { animation-delay: 0.2s; }
+    .filter-btn:nth-child(3) { animation-delay: 0.3s; }
+    .filter-btn:nth-child(4) { animation-delay: 0.4s; }
+}
+
+/* 🔥 Эффекты при касании */
+@media (max-width: 768px) {
+    .route-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    .filter-btn:active, .route-details-btn:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
     }
 }
